@@ -4,23 +4,14 @@ import iconArrowUp from '../../images/icon-arrow-up.svg'
 import Dropdown from './Dropdown'
 function DesktopNavLinks() {
   const [showDropDown, setShowDropDown] = useState(false)
-  const handleMouseEnter = () => {
-    setShowDropDown(true)
-    console.log('enter')
-  }
 
-  const handleMouseLeave = () => {
-    setShowDropDown(false)
-    console.log('leave')
+  const toggleDropdown = () => {
+    setShowDropDown(!showDropDown)
   }
   return (
     <div className="ml-12 hidden  flex-1 items-center justify-between text-medium-gray desktop:flex">
       <ul className="flex gap-10 ">
-        <li
-          className="relative flex items-center"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
+        <li className="relative flex items-center cursor-pointer" onClick={toggleDropdown}>
           Features <img src={iconArrowDown} className="ml-2" />
           <Dropdown show={showDropDown} />
         </li>
