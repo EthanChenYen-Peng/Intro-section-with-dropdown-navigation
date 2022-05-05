@@ -1,5 +1,6 @@
-import {useState} from 'react'
+import { useState } from 'react'
 import logo from '../../images/logo.svg'
+import DesktopNavLinks from './DesktopNavLinks'
 import MenuBtn from './MenuBtn'
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -7,9 +8,13 @@ function Header() {
     setMenuOpen(!menuOpen)
   }
   return (
-    <div className="flex justify-between px-6 py-6 desktop:py-6 desktop:px-8">
-      <img src={logo} />
-      <MenuBtn handleClick={toggleMenu} menuOpen={menuOpen}/>
+    <div className="flex items-center justify-between px-6 py-6 desktop:justify-start desktop:py-10 desktop:px-8">
+      <div className='w-30'>
+        <img src={logo}  className='object-cover'/>
+      </div>
+
+      <DesktopNavLinks />
+      <MenuBtn handleClick={toggleMenu} menuOpen={menuOpen} />
     </div>
   )
 }
