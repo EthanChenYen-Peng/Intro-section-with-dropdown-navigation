@@ -3,7 +3,7 @@ import Dropdown from './Dropdown'
 import iconArrowDown from '../../images/icon-arrow-down.svg'
 import iconArrowUp from '../../images/icon-arrow-up.svg'
 
-function DropdownLink({title}) {
+function DropdownLink({title , links}) {
   const [showDropDown, setShowDropDown] = useState(false)
 
   const toggleDropdown = () => {
@@ -15,7 +15,7 @@ function DropdownLink({title}) {
       onClick={toggleDropdown}
     >
       {title} <img src={iconArrowDown} className="ml-2" />
-      <Dropdown show={showDropDown} />
+      <Dropdown show={showDropDown} links={links}/>
     </li>
   )
 }

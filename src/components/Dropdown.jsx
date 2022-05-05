@@ -1,11 +1,11 @@
-function Dropdown({ show }) {
+function Dropdown({ show, links }) {
   return (
     <div
       className={`${
         show ? 'absolute' : 'hidden'
-      } right-0 top-11 rounded-lg  bg-white p-5 drop-shadow-2xl animate-[slideUp_0.3s_ease-in-out]`}
+      } right-0 top-11 animate-[slideUp_0.3s_ease-in-out] rounded-lg bg-white p-7 drop-shadow-2xl`}
     >
-      <p>Dropdown</p>
+      {links}
     </div>
   )
 }
