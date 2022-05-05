@@ -1,8 +1,7 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
-    screen: {
-      mobile: "375px",
+    screens: {
       desktop: "1440px",
     },
     colors: {
