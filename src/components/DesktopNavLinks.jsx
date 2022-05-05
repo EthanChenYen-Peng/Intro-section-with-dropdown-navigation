@@ -15,19 +15,33 @@ function FeatureLinks() {
     <ul className="flex flex-col gap-4">
       {links.map(([icon, item]) => (
         <li key={item} className="flex min-w-max items-center gap-3">
-          <img src={icon} className='w-4' />
+          <img src={icon} className="w-4" />
           <span className="text-sm font-thin">{item}</span>
         </li>
       ))}
     </ul>
   )
 }
+
+function CompanyLinks() {
+  const links = ['Histroy', 'Our team', 'Blog']
+  return (
+    <ul className="flex flex-col gap-4">
+      {links.map((item) => (
+        <li key={item} className="flex min-w-max items-center gap-3">
+          <span className="text-sm font-thin">{item}</span>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
 function DesktopNavLinks() {
   return (
     <div className="ml-12 hidden  flex-1 items-center justify-between text-medium-gray desktop:flex">
       <ul className="flex gap-10 ">
         <DropdownLink title={'Features'} links={<FeatureLinks />} />
-        <li>Company</li>
+        <DropdownLink title={'Company'} links={<CompanyLinks />} />
         <li>Carrers</li>
         <li>About</li>
       </ul>
