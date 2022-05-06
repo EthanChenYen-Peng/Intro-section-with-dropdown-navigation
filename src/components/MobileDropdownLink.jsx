@@ -1,35 +1,7 @@
 import React, { useState } from 'react'
 import iconArrowDown from '../../images/icon-arrow-down.svg'
-import todoIcon from '../../images/icon-todo.svg'
-import calendarIcon from '../../images/icon-calendar.svg'
-import reminderIcon from '../../images/icon-reminders.svg'
-import planningIcon from '../../images/icon-planning.svg'
 
-function DropdownLinks({ open }) {
-  const links = [
-    [todoIcon, 'Todo List'],
-    [calendarIcon, 'Calendar'],
-    [reminderIcon, 'Reminder'],
-    [planningIcon, 'Planning'],
-  ]
-  return (
-    <ul
-      className={`${
-        open ? 'max-h-48' : 'max-h-0'
-      }   flex flex-col gap-4 overflow-hidden transition-[max-height] duration-500`}
-    >
-      <div className="mt-4"></div>
-      {links.map(([icon, item]) => (
-        <li key={item} className="flex min-w-max items-center gap-4 pl-8">
-          <img src={icon} className="w-4" />
-          <span className="text-sm font-thin">{item}</span>
-        </li>
-      ))}
-    </ul>
-  )
-}
-
-function MobileDropdownLink({ title }) {
+function MobileDropdownLink({ title, render }) {
   const [showDropDown, setShowDropDown] = useState(false)
 
   const toggleDropdown = () => {
@@ -51,7 +23,15 @@ items-center transition-colors duration-200 hover:text-almost-black
           } ml-2 transition-transform duration-300 ease-in-out`}
         />
       </li>
-      <DropdownLinks open={showDropDown} />
+
+      <ul
+        className={`${
+          showDropDown ? 'max-h-64' : 'max-h-0'
+        }   flex flex-col gap-4 overflow-hidden transition-[max-height] duration-500`}
+      >
+        <div className="mt-4"></div>
+        {render()}
+      </ul>
     </div>
   )
 }
