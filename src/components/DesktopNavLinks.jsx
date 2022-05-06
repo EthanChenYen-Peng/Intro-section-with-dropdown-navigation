@@ -1,20 +1,10 @@
 import DropdownLink from './DropdownLink'
 import Navlink from './Navlink'
-import todoIcon from '../../images/icon-todo.svg'
-import calendarIcon from '../../images/icon-calendar.svg'
-import reminderIcon from '../../images/icon-reminders.svg'
-import planningIcon from '../../images/icon-planning.svg'
-
+import { companyNavLinks, featuresNavLinks } from '../utils/navlinks'
 function FeatureLinks() {
-  const links = [
-    [todoIcon, 'Todo List'],
-    [calendarIcon, 'Calendar'],
-    [reminderIcon, 'Reminder'],
-    [planningIcon, 'Planning'],
-  ]
   return (
     <ul className="flex flex-col gap-4">
-      {links.map(([icon, item]) => (
+      {featuresNavLinks.map(([icon, item]) => (
         <li key={item} className="flex min-w-max items-center gap-3">
           <img src={icon} className="w-4" />
           <span className="text-sm font-thin">{item}</span>
@@ -25,10 +15,9 @@ function FeatureLinks() {
 }
 
 function CompanyLinks() {
-  const links = ['Histroy', 'Our team', 'Blog']
   return (
     <ul className="flex flex-col gap-4">
-      {links.map((item) => (
+      {companyNavLinks.map((item) => (
         <li key={item} className="flex min-w-max items-center gap-3">
           <span className="text-sm font-thin">{item}</span>
         </li>
