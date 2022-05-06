@@ -1,4 +1,5 @@
 import heroImage from '../../images/image-hero-mobile.png'
+import heroImageDesktop from '../../images/image-hero-desktop.png'
 import dataBizImage from '../../images/client-databiz.svg'
 import audioPhileImage from '../../images/client-audiophile.svg'
 import meetImage from '../../images/client-meet.svg'
@@ -7,8 +8,11 @@ import makerImage from '../../images/client-maker.svg'
 const clientImages = [dataBizImage, audioPhileImage, meetImage, makerImage]
 function Hero() {
   return (
-    <div className="flex flex-col gap-8">
-      <img src={heroImage} className="w-full object-cover" />
+    <div className="flex flex-col gap-8 desktop:flex-row-reverse">
+      <picture>
+        <source media="(min-width:1440px)" srcSet={heroImageDesktop} />
+        <img src={heroImage} alt="hero image" className="w-full object-cover" />
+      </picture>
       <div className="flex flex-col items-center px-4">
         <h1 className="text-4xl font-extrabold">Make remote work</h1>
         <p className="my-5 text-center text-medium-gray">
