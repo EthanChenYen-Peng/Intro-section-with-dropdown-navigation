@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Dropdown from './Dropdown'
 import iconArrowDown from '../../images/icon-arrow-down.svg'
-import iconArrowUp from '../../images/icon-arrow-up.svg'
 
 function DropdownLink({ title, links }) {
   const [showDropDown, setShowDropDown] = useState(false)
@@ -11,10 +10,12 @@ function DropdownLink({ title, links }) {
   }
   return (
     <li
-      className="relative flex cursor-pointer items-center"
+      className="relative flex  cursor-pointer
+items-center transition-colors duration-200 hover:text-almost-black
+      "
       onClick={toggleDropdown}
     >
-      {title}{' '}
+      <span>{title}</span>
       <img
         src={iconArrowDown}
         className={`${

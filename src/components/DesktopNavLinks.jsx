@@ -1,4 +1,5 @@
 import DropdownLink from './DropdownLink'
+import Navlink from './Navlink'
 import todoIcon from '../../images/icon-todo.svg'
 import calendarIcon from '../../images/icon-calendar.svg'
 import reminderIcon from '../../images/icon-reminders.svg'
@@ -42,13 +43,15 @@ function DesktopNavLinks() {
       <ul className="flex gap-10 ">
         <DropdownLink title={'Features'} links={<FeatureLinks />} />
         <DropdownLink title={'Company'} links={<CompanyLinks />} />
-        <li>Carrers</li>
-        <li>About</li>
+        <Navlink>Carrers</Navlink>
+        <Navlink>Blog</Navlink>
       </ul>
 
       <ul className="flex items-center gap-10">
-        <li>Login</li>
-        <li className="rounded-2xl border-[1px] py-2 px-4">Register</li>
+        <Navlink>Login</Navlink>
+        <Navlink className="rounded-2xl border-[1px] py-2 px-4">
+          Register
+        </Navlink>
       </ul>
     </div>
   )
