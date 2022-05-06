@@ -2,6 +2,7 @@ import { useState } from 'react'
 import logo from '../../images/logo.svg'
 import DesktopNavLinks from './DesktopNavLinks'
 import MenuBtn from './MenuBtn'
+import MobileMenu from './MobileMenu'
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const toggleMenu = () => {
@@ -14,6 +15,7 @@ function Header() {
       </div>
 
       <DesktopNavLinks />
+      <MobileMenu menuOpen={menuOpen} />
       <MenuBtn handleClick={toggleMenu} menuOpen={menuOpen} />
     </div>
   )
