@@ -9,8 +9,8 @@ function Header() {
   }
   return (
     <div className="flex items-center justify-between px-6 py-6 desktop:justify-start desktop:py-10 desktop:px-8">
-      <div className='w-30'>
-        <img src={logo}  className='object-cover'/>
+      <div className="w-30">
+        <img src={logo} className="object-cover" />
       </div>
 
       <DesktopNavLinks />
