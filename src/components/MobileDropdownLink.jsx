@@ -1,12 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import iconArrowDown from '../../images/icon-arrow-down.svg'
 
 function MobileDropdownLink({ title, render }) {
   const [showDropDown, setShowDropDown] = useState(false)
+  const dropdownRef = useRef()
+  const dropdownContainerRef = useRef()
 
   const toggleDropdown = () => {
     setShowDropDown(!showDropDown)
   }
+  useEffect(() => {
+    const height = showDropDown
+      ? dropdownRef.current.getBoundingClientRect().height
+      : 0
+
+    dropdownContainerRef.current.style.height = `${height}px`
+  }, [showDropDown])
+
   return (
     <div className="flex flex-col">
       <li
@@ -24,14 +34,15 @@ items-center transition-colors duration-200 hover:text-almost-black
         />
       </li>
 
-      <ul
-        className={`${
-          showDropDown ? 'max-h-64' : 'max-h-0'
-        }   flex flex-col gap-4 overflow-hidden transition-[max-height] duration-500`}
+      <div
+        ref={dropdownContainerRef}
+        className="h-0 overflow-hidden transition-[height] duration-300"
       >
-        <div className="mt-4"></div>
-        {render()}
-      </ul>
+        <ul ref={dropdownRef} className="flex flex-col gap-4">
+          <div className="mt-4"></div>
+          {render()}
+        </ul>
+      </div>
     </div>
   )
 }
